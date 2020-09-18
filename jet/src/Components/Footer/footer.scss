@@ -1,0 +1,37 @@
+footer {
+	display: flex;
+	justify-content: space-between;
+	z-index: 999;
+	padding-top: 60px !important;
+	align-items: center;
+
+	p {
+		color: #fc3;
+	}
+
+	.social-network a {
+		&:first-child div {
+			background: url(../../assests/img/svg/insta-y.svg) center center / cover;
+
+			&:hover {
+				background: url(../../assests/img/svg/insta-white.svg) center center / cover;
+			}
+		}
+
+		&:nth-child(2) div {
+			background: url(../../assests/img/svg/you-y.svg) center center / cover;
+
+			&:hover {
+				background: url(../../assests/img/svg/you-white.svg) center center / cover;
+			}
+		}
+
+		&:last-child div {
+			background: url(../../assests/img/svg/vk-y.svg) center center / cover;
+
+			&:hover {
+				background: url(../../assests/img/svg/vk-white.svg) center center / cover;
+			}
+		}
+	}
+}

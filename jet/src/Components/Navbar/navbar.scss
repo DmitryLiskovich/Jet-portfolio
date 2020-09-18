@@ -1,0 +1,46 @@
+header {
+	position: absolute;
+	display: flex;
+	justify-content: space-between;
+	z-index: 999;
+	padding-top: 60px !important;
+	align-items: center;
+
+	.logo {
+		height: 72px;
+	}
+}
+
+.social-network a {
+	div {
+		display: inline-block;
+		height: 60px;
+		width: 60px;
+		margin-left: 30px;
+		transition: ease-in-out .5s background;
+	}
+
+	&:first-child div {
+		background: url(../../assests/img/svg/insta.svg) center center / cover;
+
+		&:hover {
+			background: url(../../assests/img/svg/insta-white.svg) center center / cover;
+		}
+	}
+
+	&:nth-child(2) div {
+		background: url(../../assests/img/svg/you.svg) center center / cover;
+
+		&:hover {
+			background: url(../../assests/img/svg/you-white.svg) center center / cover;
+		}
+	}
+
+	&:last-child div {
+		background: url(../../assests/img/svg/vk.svg) center center / cover;
+
+		&:hover {
+			background: url(../../assests/img/svg/vk-white.svg) center center / cover;
+		}
+	}
+}
