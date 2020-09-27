@@ -10,13 +10,7 @@ export function VideoPlayer({video, setState, state}) {
 
   return(
     <div className='video-wrapper' onClick={close}>
-        <iframe
-        title='video-from-youtube'
-        src={video} 
-        className={state ? 'active' : ''}
-        frameBorder="0" 
-        allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" 
-        allowFullScreen></iframe>
-      </div>
+      <video src={video} autoPlay controls/>
+    </div>
   )
 }

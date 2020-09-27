@@ -18,19 +18,11 @@ footer {
 			}
 		}
 
-		&:nth-child(2) div {
+		&:last-child div {
 			background: url(../../assests/img/svg/you-y.svg) center center / cover;
 
 			&:hover {
 				background: url(../../assests/img/svg/you-white.svg) center center / cover;
-			}
-		}
-
-		&:last-child div {
-			background: url(../../assests/img/svg/vk-y.svg) center center / cover;
-
-			&:hover {
-				background: url(../../assests/img/svg/vk-white.svg) center center / cover;
 			}
 		}
 	}

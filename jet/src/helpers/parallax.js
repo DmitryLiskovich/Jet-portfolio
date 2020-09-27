@@ -4,7 +4,7 @@ export function parallax(paralax, items) {
     const z = [];
 
     Array.prototype.forEach.call(items, (item)=>{
-      z.push(getRandomArbitrary(-30, 0));
+      z.push(getRandomArbitrary(-5, 0));
     })
     
     paralax.addEventListener('mousemove', (e)=> {
