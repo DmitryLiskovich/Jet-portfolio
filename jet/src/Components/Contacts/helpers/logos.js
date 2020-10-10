@@ -15,13 +15,22 @@ import logo14 from '../../../assests/img/svg/logos/Union.svg';
 import logo15 from '../../../assests/img/svg/logos/Vector-1.svg';
 import logo16 from '../../../assests/img/svg/logos/Vector.svg';
 
-const logos = [logo1, logo2, logo3, logo4, logo5, logo6, logo7, logo8, logo9, logo10, logo11, logo12, logo13, logo14, logo15, logo16];
-shuffleArray(logos);
+const logos = [
+  logo15,
+  logo13,
+  logo8,
+  logo12,
+  logo4,
+  logo6,
+  logo2,
+  logo7,
+  logo14,
+  logo9,
+  logo10,
+  logo16,
+  logo5,
+  logo11,
+  logo3,
+  logo1,
+];
 export default logos;
-
-function shuffleArray(array) {
-  for (let i = array.length - 1; i > 0; i--) {
-      const j = Math.floor(Math.random() * (i + 1));
-      [array[i], array[j]] = [array[j], array[i]];
-  }
-}

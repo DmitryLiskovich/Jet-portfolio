@@ -36,12 +36,12 @@ export function GalleryList({frameClick, selected}) {
   return (
     <>
       <div className='first'>
-        {videos.filter(item => item.types.some(val => val.type === selected)).map((item, index) => index < 2 ? (
-          <article onMouseLeave={stopOnOut} onMouseOver={playOnHover} onClick={frameClick} data-url={req.getUrl(item.video[0].url)} key={index}>
+        {videos.length && videos.filter(item => item.types.some(val => val.type === selected)).map((item, index) => index < 2 ? (
+          <article onMouseLeave={stopOnOut} onMouseOver={playOnHover} onClick={frameClick} data-url={item.google_link_video} key={index}>
             <div className='video-container'>
-              <div className='poster' style={{backgroundImage: `url(${req.getUrl(item.placeholder[0].url)})`}}></div>
+              <div className='poster' style={{backgroundImage: `url(${item.google_link_img})`}}></div>
               <div className='filter'></div>
-              <video muted src={req.getUrl(item.video[0].url)}/>
+              <video muted src={item.google_link_video}/>
               <div className='text'>
                 <h3>{item.title}</h3>
                 <p>{item.description}</p>
@@ -51,12 +51,12 @@ export function GalleryList({frameClick, selected}) {
         ) : '')}
       </div>
       <div className='second'>
-        {videos.filter(item => item.types.some(val => val.type === selected)).map((item, index) => index > 1 ? (
-          <article onMouseLeave={stopOnOut} onMouseOver={playOnHover} onClick={frameClick} data-url={req.getUrl(item.video[0].url)} key={index}>
+        {videos.length && videos.filter(item => item.types.some(val => val.type === selected)).map((item, index) => index > 1 ? (
+          <article onMouseLeave={stopOnOut} onMouseOver={playOnHover} onClick={frameClick} data-url={item.google_link_video} key={index}>
             <div className='video-container'>
-              <div className='poster' style={{backgroundImage: `url(${req.getUrl(item.placeholder[0].url)})`}}></div>
+              <div className='poster' style={{backgroundImage: `url(${item.google_link_img})`}}></div>
               <div className='filter'></div>
-              <video muted src={req.getUrl(item.video[0].url)}/>
+              <video muted src={item.google_link_video}/>
               <div className='text'>
                 <h3>{item.title}</h3>
                 <p>{item.description}</p>
