@@ -11,6 +11,10 @@ header {
 	}
 }
 
+.social-network a:first-child div {
+	margin-left: 0;
+}
+
 .social-network a {
 	div {
 		display: inline-block;

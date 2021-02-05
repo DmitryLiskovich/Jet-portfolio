@@ -6,11 +6,11 @@ export function imgScale(el, allEl) {
   }
   
   if(el === allEl[0] || el === allEl[1]) {
-    el.parentElement.style.flexShrink = 0.9;
+    el.parentElement.style.flexShrink = 0.95;
     allEl[2].parentElement.style.flexShrink = 1;
   }
   if(el === allEl[2] || el === allEl[3]) {
-    el.parentElement.style.flexShrink = 0.9;
+    el.parentElement.style.flexShrink = 0.95;
     allEl[0].parentElement.style.flexShrink = 1;
   }
 

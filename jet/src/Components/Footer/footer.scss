@@ -1,31 +1,41 @@
 footer {
-  display: flex;
-  justify-content: space-between;
-  z-index: 999;
-  padding-top: 2.5vw !important;
-  align-items: center;
+	display: flex;
+	justify-content: space-between;
+	z-index: 999;
+	padding-top: 2.5vw !important;
+	align-items: center;
 
-  p {
-    color: #fc3;
-  }
+	p {
+		color: #fc3;
+	}
 
-  .social-network a {
-    &:first-child div {
-      background: url(../../assests/img/svg/insta-y.svg) center center / cover;
+	.social-network a {
+		&:first-child div {
+			background: url(../../assests/img/svg/insta-y.svg) center center / cover;
 
-      &:hover {
-        background: url(../../assests/img/svg/insta-white.svg) center center /
-          cover;
-      }
-    }
+			&:hover {
+				background: url(../../assests/img/svg/insta-white.svg) center center /
+					cover;
+			}
+		}
 
-    &:last-child div {
-      background: url(../../assests/img/svg/you-y.svg) center center / cover;
+		&:last-child div {
+			background: url(../../assests/img/svg/you-y.svg) center center / cover;
 
-      &:hover {
-        background: url(../../assests/img/svg/you-white.svg) center center /
-          cover;
-      }
-    }
-  }
+			&:hover {
+				background: url(../../assests/img/svg/you-white.svg) center center /
+					cover;
+			}
+		}
+	}
+
+	@media screen and (max-width: 991px) {
+		flex-wrap: wrap;
+		justify-content: center;
+		text-align: center;
+
+		&.container {
+			padding: 0;
+		}
+	}
 }

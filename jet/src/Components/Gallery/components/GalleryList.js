@@ -1,31 +1,44 @@
 import React, {useEffect, useState} from 'react' 
 import { Requests } from '../../../Requests';
 import { imgScale } from './helpers/imgScale';
+import videos from './helpers/videos';
 
 const req = new Requests();
 export function GalleryList({frameClick, selected}) {
-  
-  const [videos, setVideos] = useState([]);
 
   useEffect(()=> {
-    req.getVideos().then(data => {
-      setVideos(data.data);
+    window.addEventListener('scroll', () => {
+      const articles = document.querySelectorAll('.video-article');
+      
+      Array.prototype.forEach.call(articles, item => {
+        stopOnOut({currentTarget: item}, true);
+        const itemHeight = item.getBoundingClientRect().height;
+        const itemTop = item.getBoundingClientRect().top;
+        if(itemTop < window.innerWidth/2 && (itemTop + itemHeight) > window.innerWidth/2) {
+          playOnHover({currentTarget: item});
+        }
+      })
     })
-
 
   }, []);
 
-  function playOnHover(e) {
-    e.persist();
+  function playOnHover(e, check) {
+    if(e.persist) {
+      e.persist()
+    }
     const video = e.currentTarget.querySelector('video');
     const poster = e.currentTarget.querySelector('.poster');
-    imgScale(e.currentTarget, e.currentTarget.parentElement.parentElement.querySelectorAll('article'))
+    if(!check) {
+      imgScale(e.currentTarget, e.currentTarget.parentElement.parentElement.querySelectorAll('article'))
+    }
     video.play();
     poster.classList.add('hide');
   }
   
   function stopOnOut(e) {
-    e.persist();
+    if(e.persist) {
+      e.persist()
+    }
     e.currentTarget.parentElement.parentElement.classList.remove('hoverable')
     const video = e.currentTarget.querySelector('video');
     const poster = e.currentTarget.querySelector('.poster');
@@ -35,9 +48,9 @@ export function GalleryList({frameClick, selected}) {
 
   return (
     <>
-      <div className='first'>
+      <div className='first' style={{flexShrink: '0.95'}}>
         {videos.length && videos.filter(item => item.types.some(val => val.type === selected)).map((item, index) => index < 2 ? (
-          <article onMouseLeave={stopOnOut} onMouseOver={playOnHover} onClick={frameClick} data-url={item.google_link_video} key={index}>
+          <article className='video-article' onMouseLeave={stopOnOut} onMouseOver={playOnHover} onClick={frameClick} data-url={item.google_link_video} key={index}>
             <div className='video-container'>
               <div className='poster' style={{backgroundImage: `url(${item.google_link_img})`}}></div>
               <div className='filter'></div>
@@ -52,7 +65,7 @@ export function GalleryList({frameClick, selected}) {
       </div>
       <div className='second'>
         {videos.length && videos.filter(item => item.types.some(val => val.type === selected)).map((item, index) => index > 1 ? (
-          <article onMouseLeave={stopOnOut} onMouseOver={playOnHover} onClick={frameClick} data-url={item.google_link_video} key={index}>
+          <article className='video-article' onMouseLeave={stopOnOut} onMouseOver={playOnHover} onClick={frameClick} data-url={item.google_link_video} key={index}>
             <div className='video-container'>
               <div className='poster' style={{backgroundImage: `url(${item.google_link_img})`}}></div>
               <div className='filter'></div>
