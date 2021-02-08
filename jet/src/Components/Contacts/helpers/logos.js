@@ -12,11 +12,11 @@ import logo11 from '../../../assests/img/svg/logos/Union-3.svg';
 import logo12 from '../../../assests/img/svg/logos/Union-4.svg';
 import logo13 from '../../../assests/img/svg/logos/Union-5.svg';
 import logo14 from '../../../assests/img/svg/logos/Union.svg';
-import logo15 from '../../../assests/img/svg/logos/Vector-1.svg';
+import logo15 from '../../../assests/img/svg/logos/alfa-main-logo.svg';
 import logo16 from '../../../assests/img/svg/logos/Vector.svg';
 
 export const logos1 = [
-  {src: logo15, link: 'https://leningrad.top/'},
+  {src: logo15, link: 'https://www.alfabank.by/'},
   {src: logo13, link: 'https://noizemc.com/'},
   {src: logo8, link: 'http://streetwear.by/'},
   {src: logo12, link: 'https://louna.ru/'},
@@ -40,7 +40,7 @@ export const logos3 = [
 ];
 
 export const logos = [
-  {src: logo15, link: 'https://leningrad.top/'},
+  {src: logo15, link: 'https://www.alfabank.by/'},
   {src: logo13, link: 'https://noizemc.com/'},
   {src: logo8, link: 'http://streetwear.by/'},
   {src: logo12, link: 'https://louna.ru/'},

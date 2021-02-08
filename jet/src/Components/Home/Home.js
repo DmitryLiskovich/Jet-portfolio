@@ -17,14 +17,19 @@ export const Home = ({ active }) => {
 
   useEffect(() => {
     document.addEventListener('mousemove', (e) => {
-      const y = screen.current?.offsetHeight/2*0.02 - e.clientY*0.02;
-      const x = screen.current?.offsetWidth/2*0.01 - e.clientX*0.01;
-      back.current.style.transform = `translateX(${-x*1.4}px) translateY(${-y*1.4}px)`;
-      back2.current.style.transform = `translateX(${-x/1.2}px) translateY(${-y/1.2}px)`;
-      back4.current.style.transform = `translateX(${-x/2}px) translateY(${-y/2}px)`;
-      back3.current.style.transform = `translateX(${-x/4}px) translateY(${-y/4}px)`;
-      front.current.style.transform = `translateX(${x/5}px) translateY(${y/5}px)`;
+      requestAnimationFrame(() => {
+        if(back.current && back2.current && back4.current && back3.current && front.current) {
+          const y = screen.current?.offsetHeight/2*0.02 - e.clientY*0.02;
+          const x = screen.current?.offsetWidth/2*0.01 - e.clientX*0.01;
+          back.current.style.transform = `translateX(${-x*1.4}px) translateY(${-y*1.4}px)`;
+          back2.current.style.transform = `translateX(${-x/1.2}px) translateY(${-y/1.2}px)`;
+          back4.current.style.transform = `translateX(${-x/2}px) translateY(${-y/2}px)`;
+          back3.current.style.transform = `translateX(${-x/4}px) translateY(${-y/4}px)`;
+          front.current.style.transform = `translateX(${x/5}px) translateY(${y/5}px)`;
+        }
+      })
     }, true);
+
 
     const open = fullScreenRef.current;
     const video = open.querySelector('video');
@@ -60,12 +65,11 @@ export const Home = ({ active }) => {
     open.style.width = '100%';
     open.style.opacity = 1;
     open.style.zIndex = 10;
-    open.style.padding = '5%';
     video.style.objectFit = 'auto';
     video.currentTime = front2.current.currentTime;
     video.play();
   }
-
+  
   function resetSize(open, video) {
     open.style.transform = `translateY(${front.current.getClientRects()[0].top}px)`
     open.style.height = front.current.clientHeight+'px';
@@ -73,14 +77,11 @@ export const Home = ({ active }) => {
     open.style.zIndex = -1;
     open.style.width = getComputedStyle(front.current.querySelector('.jet-effect')).width;
     video.style.objectFit = 'cover';
-    open.style.padding = 0;
     video.pause();
   }
 
   function openVideo(e) {
-    if(e.target.tagName.toLowerCase() !== 'video') {
-      setFullScreen(state => !state);
-    }
+    setFullScreen(state => !state);
   }
 
   return(

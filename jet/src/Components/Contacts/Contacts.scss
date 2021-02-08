@@ -66,6 +66,10 @@
 		width: 100%;
 		margin-left: 6.481vmin;
 
+		img {
+			min-width: 50px;
+		}
+
 		.logos-row {
 			display: flex;
 			justify-content: space-between;
