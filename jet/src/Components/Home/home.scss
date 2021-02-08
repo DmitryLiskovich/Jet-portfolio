@@ -32,9 +32,9 @@
 	}
 
 	svg {
-		height: 30px;
+		height: 2.778vmin;
 		position: absolute;
-		right: 30px;
+		right: 2.778vmin;
 		top: 50vh;
 		z-index: 20;
 		animation: arrow infinite ease-in-out 2s;
@@ -94,7 +94,7 @@
 		top: 0;
 		z-index: 100;
 		padding: 5%;
-		transition: ease-in-out 1s all;
+		transition: ease-in-out .5s all;
 		opacity: 0;
 		display: flex;
 		align-items: center;
@@ -251,6 +251,27 @@
 }
 
 @media screen and (max-width: 991px) {
+	.showreal-wrapper {
+		padding-top: 0;
+	}
+
+	.header-mobile {
+		width: 100%;
+		position: absolute;
+		padding: 4vmin 20px;
+		display: flex;
+		justify-content: center;
+
+		img {
+			max-width: 220px;
+		}
+	}
+
+	.social-network a div{
+		width: 60px;
+		height: 60px;
+	}
+
 	.home_back.mobile {
 		height: 100%;
 		width: 100%;

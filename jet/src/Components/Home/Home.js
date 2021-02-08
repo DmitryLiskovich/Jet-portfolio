@@ -3,7 +3,6 @@ import video from '../../assests/video/jetХХ-showreel.mp4';
 import text from '../../assests/img/text/text.png'
 import { Navbar } from '../Navbar/Navbar';
 import './home.scss';
-// import { scrollAnimation } from '../../helpers/scrollAnimation';
 
 export const Home = ({ active }) => {
   const [fullScreen, setFullScreen] = useState(false);
@@ -25,14 +24,16 @@ export const Home = ({ active }) => {
       back4.current.style.transform = `translateX(${-x/2}px) translateY(${-y/2}px)`;
       back3.current.style.transform = `translateX(${-x/4}px) translateY(${-y/4}px)`;
       front.current.style.transform = `translateX(${x/5}px) translateY(${y/5}px)`;
-    }, true)
-    let timer;
+    }, true);
+
     const open = fullScreenRef.current;
     const video = open.querySelector('video');
-
+    
     front.current.querySelector('img').addEventListener('load', e => {
       resetSize(open, video);
     })
+
+    let timer;
     window.addEventListener('resize', () => {
       if(timer) {
         clearTimeout(timer);
@@ -75,7 +76,6 @@ export const Home = ({ active }) => {
     open.style.padding = 0;
     video.pause();
   }
-  
 
   function openVideo(e) {
     if(e.target.tagName.toLowerCase() !== 'video') {
@@ -85,8 +85,9 @@ export const Home = ({ active }) => {
 
   return(
     <section ref={screen} className={`showreal-wrapper ${active ? 'active' : ''}`} id='showreal'>
+      <h1 class='hidden-for-seo'>Фильммейкер из Беларуси</h1>
       <div onClick={openVideo} ref={fullScreenRef} className='full-screen'>
-        <video  controls src={video}></video>
+        <video src={video}></video>
       </div>
       <Navbar/>
       <div ref={back} className='home_back'></div>

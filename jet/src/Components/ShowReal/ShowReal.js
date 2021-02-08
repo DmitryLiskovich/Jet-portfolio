@@ -1,5 +1,6 @@
 import React from 'react';
 import video from '../../assests/video/jetХХ-showreel.mp4';
+import './show-real.scss';
 export function ShowReal() {
   return(
     <section className='show-real'>

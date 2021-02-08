@@ -2,6 +2,7 @@
 	.container {
 		display: flex;
 		align-items: flex-start;
+    justify-content: center;
 	}
 
 	display: flex;
@@ -9,7 +10,7 @@
 	background: #000;
 
 	h2 {
-		padding-bottom: 60px;
+		padding-bottom: 5.55vmin;
 	}
 
 	&.active {
@@ -22,6 +23,9 @@
 	}
 
 	.gallery {
+		height: 80vmin;
+		width: 110vmin;
+
 		article {
 			opacity: 0;
 			transform: translateX(60px);
@@ -62,7 +66,7 @@
 	}
 
 	.gallery {
-		width: 100%;
+		width: 125vmin;
 		margin-left: 70px;
 		perspective: 100px;
 		display: flex;
@@ -243,7 +247,7 @@
 			}
 
 			h3 {
-				font-size: 28px;
+				font-size: 2.592vmin;
 				font-weight: 700;
 				margin-bottom: 28px;
 				color: #fc3;
@@ -295,13 +299,39 @@
 		min-height: unset;
 		padding: 20px 0;
 
+		.gallery .text-mobile {
+			margin-bottom: 40px;
+			display: flex;
+			justify-content: space-between;
+			flex-wrap: wrap;
+
+			h3 {
+				font-size: 6.25vmin;
+				color: #FFCC33;
+				font-weight: 600;
+
+				&:first-child {
+					margin-right: 20px;
+				}
+			}
+		}
+
+		.gallery .first {
+			align-items: flex-start;
+		}
+
+		h2 {
+			padding-bottom: 0;
+		}
+
 		.first,
 		.second {
 			flex-shrink: 1 !important;
 		}
 
-		h2 {
-			padding-bottom: 40px;
+		.gallery {
+			height: auto;
+			width: 100%;
 		}
 
 		.container {
@@ -317,6 +347,10 @@
 					width: 100%;
 				}
 			}
+		}
+
+		.gallery .second {
+			width: 100%;
 		}
 
 		.gallery {

@@ -45,12 +45,12 @@
 		margin-top: 10vh;
 
 		h2 {
-			margin-right: 30px;
+			margin-right: 2.778vmin;
 			transition-delay: .6s;
 		}
 
 		button {
-			margin-left: 20px;
+			margin-left: 1.852vmin;
 
 			&:nth-child(1) {
 				transition-delay: .4s;
@@ -63,16 +63,19 @@
 	}
 
 	.logos {
-		margin-left: 20px;
-		display: flex;
-		flex-wrap: wrap;
+		width: 100%;
+		margin-left: 6.481vmin;
+
+		.logos-row {
+			display: flex;
+			justify-content: space-between;
+		}
 
 		.img-wrapper {
 			display: flex;
 			justify-content: center;
 			align-items: center;
-			width: 20%;
-			margin-bottom: 20px;
+			margin-bottom: 1.852vmin;
 			opacity: 0;
 			transform: translateX(20px);
 			transition: ease-in-out .5s;
@@ -150,29 +153,12 @@
 			&:nth-child(16) {
 				transition-delay: .7s;
 			}
-
-			&:nth-child(1),
-			&:nth-child(2),
-			&:nth-child(3),
-			&:nth-child(4),
-			&:nth-child(5),
-			&:nth-child(6) {
-				width: 16.66%;
-			}
 		}
 	}
 
 	@media screen and (max-width: 1440px) {
 		.connection {
-			margin-top: 20px;
-		}
-
-		.img-wrapper {
-			height: 60px;
-
-			img {
-				max-height: 60px;
-			}
+			margin-top: 1.852vmin;
 		}
 	}
 
@@ -181,16 +167,10 @@
 			flex-wrap: wrap;
 		}
 
-		.container {
-			padding: 0;
-		}
-
-		padding: 20px;
-
 		h2 {
 			text-align: center;
 			width: 100%;
-			margin-bottom: 40px;
+			margin-bottom: 3.704vmin;
 		}
 
 		min-height: unset !important;
@@ -199,16 +179,44 @@
 
 		.connection {
 			flex-wrap: wrap;
+			justify-content: space-around;
+	
+			h2 {
+				width: 100%;
+			}
 		}
 
 		.logos {
+			display: grid;
+			grid-template-columns: 1fr 1fr 1fr 1fr;
+			grid-template-rows: 1fr 1fr 1fr 1fr;
+			gap: 25px 25px;
+			grid-template-areas:
+				". . . ."
+				". . . ."
+				". . . ."
+				". . . .";
 			margin-left: 0;
-			justify-content: space-between;
+			
+			.img-wrapper {
+				width: 100% !important;
+				height: 100%;
+	
+				img {
+					width: 100%;
+					max-height: none;
+				}
+			}
+			margin-bottom: 90px;
 		}
-
-		.img-wrapper {
-			width: 21% !important;
-			margin-bottom: 40px;
+		
+		footer.container {
+			flex-direction: column;
+		}
+	
+		.social-network {
+			margin-bottom: 20px;
 		}
 	}
+
 }

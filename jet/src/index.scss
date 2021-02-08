@@ -20,7 +20,7 @@ code {
 
 button {
 	padding: 5px 35px 5px 35px;
-	min-height: 86px;
+	min-height: 74px;
 	background: none;
 	border: solid 2px transparent;
 	cursor: pointer;
@@ -48,19 +48,20 @@ button {
 }
 
 h2 {
-	font-size: 5.8vw;
+	font-size: 9.7vmin;
 	white-space: nowrap;
 	color: #fc3;
 	font-family: 'inter', 'Courier New', Courier, monospace;
 	font-weight: 400;
 	line-height: 1;
 	text-transform: uppercase;
+	margin-bottom: 30px;
 }
 
 p {
 	font-family: 'inter', 'Courier New', Courier, monospace;
 	font-weight: 200;
-	font-size: 24px;
+	font-size: 2.222222vmin;
 }
 
 @media screen and (max-width: 1440px) {
@@ -136,14 +137,14 @@ section {
 
 @font-face {
 	font-family: 'inter';
-	src: url(./assests/fonts/NotoSans-Bold.ttf) format('opentype');
+	src: url(./assests/fonts/Inter-Regular-slnt=0.ttf) format('opentype');
 	font-weight: 400;
 	font-display: swap;
 }
 
 @font-face {
 	font-family: 'inter';
-	src: url(./assests/fonts/NotoSans-Regular.ttf) format('opentype');
+	src: url(./assests/fonts/Inter-ExtraLight-slnt=0.ttf) format('opentype');
 	font-weight: 200;
 	font-display: swap;
 }

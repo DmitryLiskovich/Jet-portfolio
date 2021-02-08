@@ -15,22 +15,45 @@ import logo14 from '../../../assests/img/svg/logos/Union.svg';
 import logo15 from '../../../assests/img/svg/logos/Vector-1.svg';
 import logo16 from '../../../assests/img/svg/logos/Vector.svg';
 
-const logos = [
-  logo15,
-  logo13,
-  logo8,
-  logo12,
-  logo4,
-  logo6,
-  logo2,
-  logo7,
-  logo14,
-  logo9,
-  logo10,
-  logo16,
-  logo5,
-  logo11,
-  logo3,
-  logo1,
+export const logos1 = [
+  {src: logo15, link: 'https://leningrad.top/'},
+  {src: logo13, link: 'https://noizemc.com/'},
+  {src: logo8, link: 'http://streetwear.by/'},
+  {src: logo12, link: 'https://louna.ru/'},
+  {src: logo4, link: ''},
+  {src: logo6, link: 'https://nizkiz.com/about'},
 ];
-export default logos;
+export const logos2 = [
+  {src: logo2, link: ''},
+  {src: logo7, link: 'https://dominos.by/'},
+  {src: logo14, link: 'https://lyapis.by/'},
+  {src: logo9, link: 'https://heropark.by/'},
+  {src: logo10, link: 'http://skillswear.ru/'},
+];
+
+export const logos3 = [
+  {src: logo16, link: ''},
+  {src: logo5, link: 'https://www.instagram.com/daidarogu/?hl=ru'},
+  {src: logo11, link: ''},
+  {src: logo3, link: 'https://krokfilms.by/'},
+  {src: logo1, link: ''},
+];
+
+export const logos = [
+  {src: logo15, link: 'https://leningrad.top/'},
+  {src: logo13, link: 'https://noizemc.com/'},
+  {src: logo8, link: 'http://streetwear.by/'},
+  {src: logo12, link: 'https://louna.ru/'},
+  {src: logo4, link: ''},
+  {src: logo6, link: 'https://nizkiz.com/about'},
+  {src: logo2, link: ''},
+  {src: logo7, link: 'https://dominos.by/'},
+  {src: logo14, link: 'https://lyapis.by/'},
+  {src: logo9, link: 'https://heropark.by/'},
+  {src: logo10, link: 'http://skillswear.ru/'},
+  {src: logo16, link: ''},
+  {src: logo5, link: 'https://www.instagram.com/daidarogu/?hl=ru'},
+  {src: logo11, link: ''},
+  {src: logo3, link: 'https://krokfilms.by/'},
+  {src: logo1, link: ''},
+];

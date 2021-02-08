@@ -1,9 +1,6 @@
-import React, {useEffect, useState} from 'react' 
-import { Requests } from '../../../Requests';
+import React, { useEffect } from 'react' 
 import { imgScale } from './helpers/imgScale';
-import videos from './helpers/videos';
-
-const req = new Requests();
+import { videos } from './helpers/videos';
 export function GalleryList({frameClick, selected}) {
 
   useEffect(()=> {
@@ -50,32 +47,48 @@ export function GalleryList({frameClick, selected}) {
     <>
       <div className='first' style={{flexShrink: '0.95'}}>
         {videos.length && videos.filter(item => item.types.some(val => val.type === selected)).map((item, index) => index < 2 ? (
-          <article className='video-article' onMouseLeave={stopOnOut} onMouseOver={playOnHover} onClick={frameClick} data-url={item.google_link_video} key={index}>
-            <div className='video-container'>
-              <div className='poster' style={{backgroundImage: `url(${item.google_link_img})`}}></div>
-              <div className='filter'></div>
-              <video muted src={item.google_link_video}/>
-              <div className='text'>
-                <h3>{item.title}</h3>
-                <p>{item.description}</p>
+          <>
+            <article className='video-article' onMouseLeave={stopOnOut} onMouseOver={playOnHover} onClick={frameClick} data-url={item.google_link_video} key={index}>
+              <div className='video-container'>
+                <div className='poster' style={{backgroundImage: `url(${item.google_link_img})`}}></div>
+                <div className='filter'></div>
+                <video muted src={item.google_link_video}/>
+                <div className='text'>
+                  <h3>{item.title}</h3>
+                  <p>{item.description}</p>
+                </div>
               </div>
-            </div>
-          </article>
+            </article>
+            { window.innerWidth <= 991 &&
+              <div className='text-mobile'>
+                <h3>{item.title}</h3>
+                <h3>{item.year}</h3>
+              </div>
+            }
+          </>
         ) : '')}
       </div>
       <div className='second'>
         {videos.length && videos.filter(item => item.types.some(val => val.type === selected)).map((item, index) => index > 1 ? (
-          <article className='video-article' onMouseLeave={stopOnOut} onMouseOver={playOnHover} onClick={frameClick} data-url={item.google_link_video} key={index}>
-            <div className='video-container'>
-              <div className='poster' style={{backgroundImage: `url(${item.google_link_img})`}}></div>
-              <div className='filter'></div>
-              <video muted src={item.google_link_video}/>
-              <div className='text'>
-                <h3>{item.title}</h3>
-                <p>{item.description}</p>
+          <>
+            <article className='video-article' onMouseLeave={stopOnOut} onMouseOver={playOnHover} onClick={frameClick} data-url={item.google_link_video} key={index}>
+              <div className='video-container'>
+                <div className='poster' style={{backgroundImage: `url(${item.google_link_img})`}}></div>
+                <div className='filter'></div>
+                <video muted src={item.google_link_video}/>
+                <div className='text'>
+                  <h3>{item.title}</h3>
+                  <p>{item.description}</p>
+                </div>
               </div>
-            </div>
-          </article>
+            </article>
+            { window.innerWidth <= 991 &&
+              <div className='text-mobile'>
+                <h3>{item.title}</h3>
+                <h3>{item.year}</h3>
+              </div>
+            }
+          </>
         ) : '')}
       </div>
     </>

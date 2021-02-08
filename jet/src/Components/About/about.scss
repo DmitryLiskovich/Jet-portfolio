@@ -20,6 +20,7 @@
 
 	h2 {
 		transition-delay: .6s;
+		margin-bottom: 4.54vmin;
 	}
 
 	p:nth-child(2) {
@@ -38,7 +39,8 @@
 		display: flex;
 		flex-wrap: wrap;
 		align-items: flex-start;
-		padding-right: 40px;
+		justify-content: flex-end;
+		padding-right: 3.704vmin;
 
 		img {
 			max-width: 100%;
@@ -49,24 +51,27 @@
 
 			&:first-child {
 				margin-bottom: 60px;
+				margin-right: 10vmin;
+				width: 60vmin;
 			}
 
 			&:nth-child(3) {
 				transition-delay: .2s;
-				width: 40%;
+				width: 27vmin;
 			}
 
 			&:nth-child(2) {
 				transition-delay: .4s;
-				margin-left: 10%;
-				margin-right: 10%;
-				width: 40%;
+				margin-left: 3vmin;
+				margin-right: 3vmin;
+				width: 27vmin;
 			}
 		}
 	}
 
 	.container {
 		display: flex;
+		justify-content: center;
 
 		div {
 			width: 50%;
@@ -75,12 +80,12 @@
 
 	p {
 		color: #fff;
-		margin-bottom: 40px;
+		margin-bottom: 3.704vmin;
 	}
 
 	@media screen and (max-width: 1440px) {
 		&_images {
-			padding-right: 30px;
+			padding-right: 2.778vmin;
 		}
 
 		img {
