@@ -30,7 +30,11 @@ export const Contacts = ({ active }) => {
                 <div className="logos-row">
                   {logos1.map((item, ind) => (
                     <div className="img-wrapper" key={ind}>
-                      <a href={item.link ? item.link : 'javascript:void(0)'}>
+                      <a
+                        rel="noreferrer nofollow"
+                        target="_blank"
+                        href={item.link ? item.link : 'javascript:void(0)'}
+                      >
                         <img alt={`Логотип партнера ${ind}`} src={item.src} />
                       </a>
                     </div>
@@ -39,7 +43,11 @@ export const Contacts = ({ active }) => {
                 <div className="logos-row">
                   {logos2.map((item, ind) => (
                     <div className="img-wrapper" key={ind}>
-                      <a href={item.link ? item.link : 'javascript:void(0)'}>
+                      <a
+                        rel="noreferrer nofollow"
+                        target="_blank"
+                        href={item.link ? item.link : 'javascript:void(0)'}
+                      >
                         <img alt={`Логотип партнера ${ind}`} src={item.src} />
                       </a>
                     </div>
@@ -48,7 +56,11 @@ export const Contacts = ({ active }) => {
                 <div className="logos-row">
                   {logos3.map((item, ind) => (
                     <div className="img-wrapper" key={ind}>
-                      <a href={item.link ? item.link : 'javascript:void(0)'}>
+                      <a
+                        rel="noreferrer nofollow"
+                        target="_blank"
+                        href={item.link ? item.link : 'javascript:void(0)'}
+                      >
                         <img alt={`Логотип партнера ${ind}`} src={item.src} />
                       </a>
                     </div>
