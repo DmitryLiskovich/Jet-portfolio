@@ -62,7 +62,7 @@ export const Home = ({ active }) => {
     }
   }, [fullScreen])
 
-  function openVideo(e) {
+  function openVideo() {
     setFullScreen(state => !state);
   }
 
