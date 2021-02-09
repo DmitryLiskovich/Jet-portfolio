@@ -184,7 +184,7 @@
 		.connection {
 			flex-wrap: wrap;
 			justify-content: space-around;
-	
+
 			h2 {
 				width: 100%;
 			}
@@ -196,31 +196,31 @@
 			grid-template-rows: 1fr 1fr 1fr 1fr;
 			gap: 25px 25px;
 			grid-template-areas:
-				". . . ."
-				". . . ."
-				". . . ."
-				". . . .";
+				'. . . .'
+				'. . . .'
+				'. . . .'
+				'. . . .';
 			margin-left: 0;
-			
+
 			.img-wrapper {
 				width: 100% !important;
 				height: 100%;
-	
+
 				img {
 					width: 100%;
 					max-height: none;
 				}
 			}
+
 			margin-bottom: 90px;
 		}
-		
+
 		footer.container {
 			flex-direction: column;
 		}
-	
+
 		.social-network {
 			margin-bottom: 20px;
 		}
 	}
-
 }

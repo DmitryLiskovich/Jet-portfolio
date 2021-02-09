@@ -11,10 +11,6 @@ header {
 	}
 }
 
-.social-network a:first-child div {
-	margin-left: 0;
-}
-
 .social-network a {
 	div {
 		display: inline-block;
@@ -26,6 +22,7 @@ header {
 
 	&:first-child div {
 		background: url(../../assests/img/svg/insta.svg) center center / cover;
+		margin-left: 0;
 
 		&:hover {
 			background: url(../../assests/img/svg/insta-white.svg) center center / cover;

@@ -1,28 +1,17 @@
 import React, { useState } from 'react';
 import { GalleryList } from './components/GalleryList';
-import { VideoPlayer } from './components/VideoPlayer';
 import './gallery.scss';
 
 export const Gallery = () => {
-  const [activeFrame, setActiveFrame] = useState(0);
   const categories = [
     {type: "Реклама"},
     {type: "Концерты"},
     {type: "Клипы"},
   ];
   const [selectedCategory, setSelectedCategory] = useState(categories[0].type);
-  const [state, setState] = useState(false);
-
-  function frameClick(e) {
-    setState(true);
-    setActiveFrame(e.currentTarget.getAttribute('data-url'));
-  }
 
   return (
     <section className={`section-wrapper gallery`} id="gallery">
-      {state && (
-        <VideoPlayer video={activeFrame} state={state} setState={setState} />
-      )}
       <div className="container">
         <div className="gallery-info">
           {window.innerWidth > 991 && (
@@ -35,26 +24,26 @@ export const Gallery = () => {
               <br />
             </h2>
           )}
-          {window.innerWidth < 991 && (
+          {window.innerWidth <= 991 && (
             <h2>
               ПОРТ
               <br />
               ФОЛИО
             </h2>
           )}
-          {categories.map((item) => (
+          {categories.map((item, index) => (
             <button
               className={`${selectedCategory === item.type ? 'active' : ''}`}
               onClick={() => setSelectedCategory(item.type)}
               type="button"
-              key={item._id}
+              key={index}
             >
               {item.type}
             </button>
           ))}
         </div>
         <div className="gallery">
-          <GalleryList selected={selectedCategory} frameClick={frameClick} />
+          <GalleryList selected={selectedCategory}/>
         </div>
       </div>
     </section>

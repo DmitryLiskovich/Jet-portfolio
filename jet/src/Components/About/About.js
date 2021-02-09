@@ -8,10 +8,10 @@ export const About = () => {
   return (
     <section className="about-section">
       <div className="container">
-        {window.innerWidth < 991 && <h2>ОБО МНЕ</h2>}
+        {window.innerWidth <= 991 && <h2>ОБО МНЕ</h2>}
         <div className="about-section_images">
           <img alt="Женя Соломонов со штативом" src={aboutimg1} />
-          {window.innerWidth < 991 && (
+          {window.innerWidth <= 991 && (
             <img alt="Женя Соломонов на сцене" src={aboutimg3} />
           )}
           <img alt="Женя Соломонов снимает на сцене" src={aboutimg2} />

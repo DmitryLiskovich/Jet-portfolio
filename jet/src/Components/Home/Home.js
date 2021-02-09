@@ -2,6 +2,8 @@ import React, { useRef, useEffect, useState } from 'react';
 import video from '../../assests/video/jetХХ-showreel.mp4';
 import text from '../../assests/img/text/text.png'
 import { Navbar } from '../Navbar/Navbar';
+import { setSize, resetSize } from './helpers/fullscreenControl';
+import { parallax } from './helpers/parallax'
 import './home.scss';
 
 export const Home = ({ active }) => {
@@ -18,15 +20,15 @@ export const Home = ({ active }) => {
   useEffect(() => {
     document.addEventListener('mousemove', (e) => {
       requestAnimationFrame(() => {
-        if(back.current && back2.current && back4.current && back3.current && front.current) {
-          const y = screen.current?.offsetHeight/2*0.02 - e.clientY*0.02;
-          const x = screen.current?.offsetWidth/2*0.01 - e.clientX*0.01;
-          back.current.style.transform = `translateX(${-x*1.4}px) translateY(${-y*1.4}px)`;
-          back2.current.style.transform = `translateX(${-x/1.2}px) translateY(${-y/1.2}px)`;
-          back4.current.style.transform = `translateX(${-x/2}px) translateY(${-y/2}px)`;
-          back3.current.style.transform = `translateX(${-x/4}px) translateY(${-y/4}px)`;
-          front.current.style.transform = `translateX(${x/5}px) translateY(${y/5}px)`;
-        }
+        parallax({
+          back: back.current,
+          back2: back2.current,
+          back3: back3.current,
+          back4: back4.current,
+          front: front.current,
+          screen: screen.current,
+          event: e
+        })
       })
     }, true);
 
@@ -35,7 +37,7 @@ export const Home = ({ active }) => {
     const video = open.querySelector('video');
     
     front.current.querySelector('img').addEventListener('load', e => {
-      resetSize(open, video);
+      resetSize(open, video, front.current);
     })
 
     let timer;
@@ -44,7 +46,7 @@ export const Home = ({ active }) => {
         clearTimeout(timer);
       }
       timer = setTimeout(() => {
-        resetSize(open, video);
+        resetSize(open, video, front.current);
       }, 200)
     })
   }, [])
@@ -52,33 +54,13 @@ export const Home = ({ active }) => {
   useEffect(() => {
     const open = fullScreenRef.current;
     const video = open.querySelector('video');
+
     if(fullScreen) {
-      setSize(open, video);
+      setSize(open, video, front2.current.currentTime);
     } else {
-      resetSize(open, video);
+      resetSize(open, video, front.current);
     }
   }, [fullScreen])
-
-  function setSize(open, video) {
-    open.style.transform = `translateY(0px)`
-    open.style.height = '100%';
-    open.style.width = '100%';
-    open.style.opacity = 1;
-    open.style.zIndex = 10;
-    video.style.objectFit = 'auto';
-    video.currentTime = front2.current.currentTime;
-    video.play();
-  }
-  
-  function resetSize(open, video) {
-    open.style.transform = `translateY(${front.current.getClientRects()[0].top}px)`
-    open.style.height = front.current.clientHeight+'px';
-    open.style.opacity = 0;
-    open.style.zIndex = -1;
-    open.style.width = getComputedStyle(front.current.querySelector('.jet-effect')).width;
-    video.style.objectFit = 'cover';
-    video.pause();
-  }
 
   function openVideo(e) {
     setFullScreen(state => !state);
@@ -86,7 +68,7 @@ export const Home = ({ active }) => {
 
   return(
     <section ref={screen} className={`showreal-wrapper ${active ? 'active' : ''}`} id='showreal'>
-      <h1 class='hidden-for-seo'>Фильммейкер из Беларуси</h1>
+      <h1 className='hidden-for-seo'>Фильммейкер из Беларуси</h1>
       <div onClick={openVideo} ref={fullScreenRef} className='full-screen'>
         <video src={video}></video>
       </div>

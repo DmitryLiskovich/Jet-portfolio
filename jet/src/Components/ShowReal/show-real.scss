@@ -1,23 +1,24 @@
 .show-real {
-  h2,
-  video {
-    opacity: 0;
-    transition: ease-in-out all .5s;
-  }
+	h2,
+	video {
+		opacity: 0;
+		transition: ease-in-out all .5s;
+	}
 
-  h2 {
-    transform: translateX(-20px);
-  }
+	h2 {
+		transform: translateX(-20px);
+	}
 
-  video {
-    transform: translateX(20px);
-    transition-delay: .2s;
-  }
+	video {
+		transform: translateX(20px);
+		transition-delay: .2s;
+	}
 
-  &.active {
-    h2, video {
-      opacity: 1;
-      transform: translateX(0);
-    }
-  }
+	&.active {
+		h2,
+		video {
+			opacity: 1;
+			transform: translateX(0);
+		}
+	}
 }

@@ -4,25 +4,26 @@ import { videos } from './helpers/videos';
 export function GalleryList({frameClick, selected}) {
 
   useEffect(()=> {
-    window.addEventListener('scroll', () => {
-      const articles = document.querySelectorAll('.video-article');
-      
-      Array.prototype.forEach.call(articles, item => {
-        stopOnOut({currentTarget: item}, true);
-        const itemHeight = item.getBoundingClientRect().height;
-        const itemTop = item.getBoundingClientRect().top;
-        if(itemTop < window.innerWidth/2 && (itemTop + itemHeight) > window.innerWidth/2) {
-          playOnHover({currentTarget: item});
-        }
+    if(window.innerWidth <= 991) {
+      window.addEventListener('scroll', () => {
+        const articles = document.querySelectorAll('.video-article');
+        
+        Array.prototype.forEach.call(articles, item => {
+          stopOnOut({currentTarget: item}, true);
+          const itemHeight = item.getBoundingClientRect().height;
+          const itemTop = item.getBoundingClientRect().top;
+          if(itemTop < window.innerWidth/2 && (itemTop + itemHeight) > window.innerWidth/2) {
+            playOnHover({currentTarget: item});
+          }
+        })
       })
-    })
+    }
 
   }, []);
 
   function playOnHover(e, check) {
-    if(e.persist) {
-      e.persist()
-    }
+    e.persist && e.persist();
+
     const video = e.currentTarget.querySelector('video');
     const poster = e.currentTarget.querySelector('.poster');
     if(!check) {
@@ -33,9 +34,8 @@ export function GalleryList({frameClick, selected}) {
   }
   
   function stopOnOut(e) {
-    if(e.persist) {
-      e.persist()
-    }
+    e.persist && e.persist();
+
     e.currentTarget.parentElement.parentElement.classList.remove('hoverable')
     const video = e.currentTarget.querySelector('video');
     const poster = e.currentTarget.querySelector('.poster');
@@ -47,7 +47,7 @@ export function GalleryList({frameClick, selected}) {
     <>
       <div className='first' style={{flexShrink: '0.95'}}>
         {videos.length && videos.filter(item => item.types.some(val => val.type === selected)).map((item, index) => index < 2 ? (
-          <>
+          <React.Fragment key={index}>
             <article className='video-article' onMouseLeave={stopOnOut} onMouseOver={playOnHover} onClick={frameClick} data-url={item.google_link_video} key={index}>
               <div className='video-container'>
                 <div className='poster' style={{backgroundImage: `url(${item.google_link_img})`}}></div>
@@ -65,12 +65,12 @@ export function GalleryList({frameClick, selected}) {
                 <h3>{item.year}</h3>
               </div>
             }
-          </>
+          </React.Fragment>
         ) : '')}
       </div>
       <div className='second'>
         {videos.length && videos.filter(item => item.types.some(val => val.type === selected)).map((item, index) => index > 1 ? (
-          <>
+          <React.Fragment key={index}>
             <article className='video-article' onMouseLeave={stopOnOut} onMouseOver={playOnHover} onClick={frameClick} data-url={item.google_link_video} key={index}>
               <div className='video-container'>
                 <div className='poster' style={{backgroundImage: `url(${item.google_link_img})`}}></div>
@@ -88,7 +88,7 @@ export function GalleryList({frameClick, selected}) {
                 <h3>{item.year}</h3>
               </div>
             }
-          </>
+          </React.Fragment>
         ) : '')}
       </div>
     </>
