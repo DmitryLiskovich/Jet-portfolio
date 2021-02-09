@@ -13,22 +13,22 @@ export const Layout = () => {
   useEffect(() => {
     const sections = document.querySelectorAll('section');
     const path = window.innerWidth <= 991 ? 'top' : 'left';
-  
+
     window.addEventListener('wheel', (e) => {
       requestAnimationFrame(scroll(e.deltaY));
-    })
-    
+    });
+
     window.addEventListener('scroll', () => {
       showOnScroll(sections, path);
-    })
+    });
 
     showOnScroll(sections, path);
-  }, [])
+  }, []);
 
   return (
     <div className="root-wrapper">
       {window.innerWidth > 991 ? <Home /> : <HomeMobile />}
-      {window.innerWidth <= 991 && <ShowReal/>}
+      {window.innerWidth <= 991 && <ShowReal />}
       <Gallery />
       <About />
       <Contacts />

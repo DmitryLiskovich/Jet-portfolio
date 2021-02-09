@@ -7,7 +7,7 @@ import * as serviceWorker from './serviceWorker';
 ReactDOM.unstable_createRoot(document.getElementById('root')).render(
   <React.StrictMode>
     <App />
-  </React.StrictMode>
+  </React.StrictMode>,
 );
 
 serviceWorker.register();

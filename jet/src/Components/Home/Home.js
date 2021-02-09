@@ -1,9 +1,9 @@
 import React, { useRef, useEffect, useState } from 'react';
 import video from '../../assests/video/jetХХ-showreel.mp4';
-import text from '../../assests/img/text/text.png'
+import text from '../../assests/img/text/text.png';
 import { Navbar } from '../Navbar/Navbar';
 import { setSize, resetSize } from './helpers/fullscreenControl';
-import { parallax } from './helpers/parallax'
+import { parallax } from './helpers/parallax';
 import './home.scss';
 
 export const Home = ({ active }) => {
@@ -18,72 +18,90 @@ export const Home = ({ active }) => {
   const fullScreenRef = useRef(null);
 
   useEffect(() => {
-    document.addEventListener('mousemove', (e) => {
-      requestAnimationFrame(() => {
-        parallax({
-          back: back.current,
-          back2: back2.current,
-          back3: back3.current,
-          back4: back4.current,
-          front: front.current,
-          screen: screen.current,
-          event: e
-        })
-      })
-    }, true);
-
+    document.addEventListener(
+      'mousemove',
+      (e) => {
+        requestAnimationFrame(() => {
+          parallax({
+            back: back.current,
+            back2: back2.current,
+            back3: back3.current,
+            back4: back4.current,
+            front: front.current,
+            screen: screen.current,
+            event: e,
+          });
+        });
+      },
+      true,
+    );
 
     const open = fullScreenRef.current;
     const video = open.querySelector('video');
-    
-    front.current.querySelector('img').addEventListener('load', e => {
+
+    front.current.querySelector('img').addEventListener('load', () => {
       resetSize(open, video, front.current);
-    })
+    });
 
     let timer;
     window.addEventListener('resize', () => {
-      if(timer) {
+      if (timer) {
         clearTimeout(timer);
       }
       timer = setTimeout(() => {
         resetSize(open, video, front.current);
-      }, 200)
-    })
-  }, [])
+      }, 200);
+    });
+  }, []);
 
   useEffect(() => {
     const open = fullScreenRef.current;
     const video = open.querySelector('video');
 
-    if(fullScreen) {
+    if (fullScreen) {
       setSize(open, video, front2.current.currentTime);
     } else {
       resetSize(open, video, front.current);
     }
-  }, [fullScreen])
+  }, [fullScreen]);
 
   function openVideo() {
-    setFullScreen(state => !state);
+    setFullScreen((state) => !state);
   }
 
-  return(
-    <section ref={screen} className={`showreal-wrapper ${active ? 'active' : ''}`} id='showreal'>
-      <h1 className='hidden-for-seo'>Фильммейкер из Беларуси</h1>
-      <div onClick={openVideo} ref={fullScreenRef} className='full-screen'>
+  return (
+    <section
+      ref={screen}
+      className={`showreal-wrapper ${active ? 'active' : ''}`}
+      id="showreal"
+    >
+      <h1 className="hidden-for-seo">Фильммейкер из Беларуси</h1>
+      <div onClick={openVideo} ref={fullScreenRef} className="full-screen">
         <video src={video}></video>
       </div>
-      <Navbar/>
-      <div ref={back} className='home_back'></div>
-      <div ref={back2} className='home_back_2'></div>
-      <div ref={back4} className='home_back_4'></div>
-      <div ref={back3} className='home_back_3'></div>
-      <div ref={front} className='content container'>
-        <div onClick={openVideo} className='jet-effect'>
-          <img alt="Фильммейкер | Видеомейкер из Беларуси" className='text' src={text}/>
-          <video ref={front2} className='text' src={video} autoPlay muted loop/>
+      <Navbar />
+      <div ref={back} className="home_back"></div>
+      <div ref={back2} className="home_back_2"></div>
+      <div ref={back4} className="home_back_4"></div>
+      <div ref={back3} className="home_back_3"></div>
+      <div ref={front} className="content container">
+        <div onClick={openVideo} className="jet-effect">
+          <img
+            alt="Фильммейкер | Видеомейкер из Беларуси"
+            className="text"
+            src={text}
+          />
+          <video
+            ref={front2}
+            className="text"
+            src={video}
+            autoPlay
+            muted
+            loop
+          />
         </div>
       </div>
-      <div className='home_front'></div>
+      <div className="home_front"></div>
     </section>
-  )
-}
+  );
+};

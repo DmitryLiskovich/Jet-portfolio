@@ -1,10 +1,10 @@
 export const scroll = (deltaY, count = 0) => {
-  return function () {
+  return function() {
     window.scrollBy({
-      left: deltaY/10,
-    })
-    if(count < 9) {
-      requestAnimationFrame(scroll(deltaY, count+1))
+      left: deltaY / 10,
+    });
+    if (count < 9) {
+      requestAnimationFrame(scroll(deltaY, count + 1));
     }
-  }
-}
+  };
+};

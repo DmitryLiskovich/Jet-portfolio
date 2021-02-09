@@ -4,14 +4,14 @@ import './gallery.scss';
 
 export const Gallery = () => {
   const categories = [
-    {type: "Реклама"},
-    {type: "Концерты"},
-    {type: "Клипы"},
+    { type: 'Реклама' },
+    { type: 'Концерты' },
+    { type: 'Клипы' },
   ];
   const [selectedCategory, setSelectedCategory] = useState(categories[0].type);
 
   return (
-    <section className={`section-wrapper gallery`} id="gallery">
+    <section className={'section-wrapper gallery'} id="gallery">
       <div className="container">
         <div className="gallery-info">
           {window.innerWidth > 991 && (
@@ -43,7 +43,7 @@ export const Gallery = () => {
           ))}
         </div>
         <div className="gallery">
-          <GalleryList selected={selectedCategory}/>
+          <GalleryList selected={selectedCategory} />
         </div>
       </div>
     </section>
