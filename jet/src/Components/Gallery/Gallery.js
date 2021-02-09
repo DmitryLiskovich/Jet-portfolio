@@ -14,23 +14,8 @@ export const Gallery = () => {
     <section className={'section-wrapper gallery'} id="gallery">
       <div className="container">
         <div className="gallery-info">
-          {window.innerWidth > 991 && (
-            <h2>
-              ПОР
-              <br />
-              ТФО
-              <br />
-              ЛИО
-              <br />
-            </h2>
-          )}
-          {window.innerWidth <= 991 && (
-            <h2>
-              ПОРТ
-              <br />
-              ФОЛИО
-            </h2>
-          )}
+          {window.innerWidth > 991 ? <DesktopHeader /> : <MobileHeader />}
+
           {categories.map((item, index) => (
             <button
               className={`${selectedCategory === item.type ? 'active' : ''}`}
@@ -49,3 +34,21 @@ export const Gallery = () => {
     </section>
   );
 };
+
+const DesktopHeader = () => (
+  <h2>
+    ПОР
+    <br />
+    ТФО
+    <br />
+    ЛИО
+    <br />
+  </h2>
+);
+const MobileHeader = () => (
+  <h2>
+    ПОРТ
+    <br />
+    ФОЛИО
+  </h2>
+);

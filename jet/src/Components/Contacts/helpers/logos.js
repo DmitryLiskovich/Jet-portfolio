@@ -15,7 +15,7 @@ import logo14 from '../../../assests/img/svg/logos/Union.svg';
 import logo15 from '../../../assests/img/svg/logos/alfa-main-logo.svg';
 import logo16 from '../../../assests/img/svg/logos/Vector.svg';
 
-export const logos1 = [
+export const logosFirstRow = [
   { src: logo15, link: 'https://www.alfabank.by/' },
   { src: logo13, link: 'https://noizemc.com/' },
   { src: logo8, link: 'http://streetwear.by/' },
@@ -23,7 +23,7 @@ export const logos1 = [
   { src: logo4, link: '' },
   { src: logo6, link: 'https://nizkiz.com/about' },
 ];
-export const logos2 = [
+export const logosSecondRow = [
   { src: logo2, link: '' },
   { src: logo7, link: 'https://dominos.by/' },
   { src: logo14, link: 'https://lyapis.by/' },
@@ -31,7 +31,7 @@ export const logos2 = [
   { src: logo10, link: 'http://skillswear.ru/' },
 ];
 
-export const logos3 = [
+export const logosThirdRow = [
   { src: logo16, link: '' },
   { src: logo5, link: 'https://www.instagram.com/daidarogu/?hl=ru' },
   { src: logo11, link: '' },
